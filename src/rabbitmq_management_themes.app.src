@@ -1,0 +1,8 @@
+{application, rabbitmq_management_themes,
+ [{description, "RabbitMQ Management Themes"},
+  {vsn, "%%VSN%%"},
+  {modules, []},
+  {registered, []},
+  {env, []},
+  {applications, [kernel, stdlib, rabbitmq_management]}
+ ]}.

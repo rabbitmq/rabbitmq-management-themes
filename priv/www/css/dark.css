@@ -1,0 +1,59 @@
+body { background: #222; color: #aaa; }
+#menu a, #main a, #login-version { color: #aaa; }
+b, #login-details b, table th, table.facts th { color: #ddd; }
+.status-bar { color: #222; }
+a:hover, h2:hover { color: #ddd !important; }
+
+div.section-invisible h2 { background: #222; border-bottom: 1px solid #444; background-image: url(../img/collapse.png); background-repeat:no-repeat; background-position:4px 4px; }
+div.section-visible h2 { background: #333; border-bottom: 1px solid #444; background-image: url(../img/expand.png); background-repeat:no-repeat; background-position:4px 4px; }
+
+h3 { border-bottom: 1px solid #444; }
+
+tr.alt1>td { background: #222; }
+tr.alt2>td { background: #444; }
+
+tr.alt1>td {
+    background: -moz-linear-gradient(center top, #303030 0%,#101010 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #303030),color-stop(1, #101010));
+}
+
+tr.alt2>td {
+    background: -moz-linear-gradient(center top, #202020 0%,#404040 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #202020),color-stop(1, #404040));
+}
+
+table.list { border-bottom: 1px solid #444; }
+table.list th, table.list td { border-left: 1px solid #444; border-right: 1px solid #444; }
+table.list th { border-top: 1px solid #444; border-bottom: 1px solid #444; }
+
+table.facts th { border-right: 1px solid #444; }
+
+.highlight, .mini-highlight, .micro-highlight {
+    background: -moz-linear-gradient(center top, #404040 0%,#202020 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #404040),color-stop(1, #202020));
+    border: 1px solid #404040;
+}
+
+.highlight { color: #888; }
+.highlight strong { color: #aaa; }
+
+input[type="text"], input[type="password"], textarea { background: #222; border: 1px solid #444; color: #ddd; }
+
+input[type=submit], button {
+    background: #aac;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #aac),color-stop(1, #88d));
+    xborder: 1px solid #88d;
+}
+
+input[type=submit]:hover, button:hover {
+    background: #99c;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #99c),color-stop(1, #77a));
+    xborder: 1px solid #66b;
+}
+
+#login-version form input { border: 1px solid #444 !important; }
+
+select { background: #333; color: #aaa; border: none; }
+option { background: #222; color: #aaa; }
+
+acronym { background: #7bb; }
