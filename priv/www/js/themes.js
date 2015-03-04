@@ -17,10 +17,10 @@ $(document).ready(function() {
 
 function get_theme() {
     var theme = get_pref('theme');
-    return theme == null ? 'Light' : theme;
+    return theme == null ? 'Default' : theme;
 }
 
-var THEMES = ['Light', 'Dark'];
+var THEMES = ['Default', 'Dark'];
 
 function change_theme() {
     var theme = get_theme();
