@@ -42,6 +42,9 @@ function load_theme(name) {
     }
 
     $('#logo img').attr('src', 'img/' + name + '-logo.png');
+    $('link[rel="shortcut icon"]')
+        .attr('href', 'img/' + name + '-favicon.png')
+        .attr('type', 'image/png');
 
     var chart_chrome_themes = {
         light: {
