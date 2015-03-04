@@ -51,12 +51,6 @@ function load_theme(name) {
             yaxis:  { tickColor: "#eee", min: 0 },
             legend: { show: false }
         },
-        panel: {
-            grid:   { borderWidth: 2, borderColor: "#fff" },
-            xaxis:  { tickColor: "#fff", mode: "time" },
-            yaxis:  { tickColor: "#fff", min: 0 },
-            legend: { show: false }
-        },
         dark: {
             series: { lines: { show: true } },
             grid:   { borderWidth: 2, borderColor: "#666" },
