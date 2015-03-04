@@ -4,8 +4,8 @@ b, #login-details b, #login-details a, table th, table.facts th { color: #ddd; }
 .status-bar { color: #222; }
 a:hover, h2:hover { color: #ddd !important; }
 
-div.section-invisible h2 { background: #222; border-bottom: 1px solid #444; background-image: url(../img/collapse.png); background-repeat:no-repeat; background-position:4px 4px; }
-div.section-visible h2 { background: #333; border-bottom: 1px solid #444; background-image: url(../img/expand.png); background-repeat:no-repeat; background-position:4px 4px; }
+div.section-invisible h2 { background: #222; border-bottom: 1px solid #444; }
+div.section-visible h2 { background: #333; border-bottom: 1px solid #444; }
 
 h3 { border-bottom: 1px solid #444; }
 
