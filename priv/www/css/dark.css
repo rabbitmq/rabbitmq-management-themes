@@ -1,6 +1,6 @@
 body { background: #222; color: #aaa; }
-#menu a, #main a, #login-version { color: #aaa; }
-b, #login-details b, table th, table.facts th { color: #ddd; }
+#menu a, #main a, #login-version, #rhs a { color: #aaa; }
+b, #login-details b, #login-details a, table th, table.facts th { color: #ddd; }
 .status-bar { color: #222; }
 a:hover, h2:hover { color: #ddd !important; }
 
@@ -23,7 +23,7 @@ tr.alt2>td {
 }
 
 table.list { border-bottom: 1px solid #444; }
-table.list th, table.list td { border-left: 1px solid #444; border-right: 1px solid #444; }
+table.list th, table.list td { border: 1px solid #444; }
 table.list th { border-top: 1px solid #444; border-bottom: 1px solid #444; }
 
 table.facts th { border-right: 1px solid #444; }
@@ -34,8 +34,8 @@ table.facts th { border-right: 1px solid #444; }
     border: 1px solid #404040;
 }
 
-.highlight { color: #888; }
-.highlight strong { color: #aaa; }
+.highlight, .mini-highlight, .micro-highlight { color: #888; }
+.highlight, .mini-highlight, .micro-highlight strong { color: #aaa; }
 
 input[type="text"], input[type="password"], textarea { background: #222; border: 1px solid #444; color: #ddd; }
 
@@ -57,3 +57,17 @@ select { background: #333; color: #aaa; border: none; }
 option { background: #222; color: #aaa; }
 
 acronym { background: #7bb; }
+
+.rate-visibility-option { background: #222; border: 1px solid #333; color: #eee; }
+.rate-visibility-option-hidden { color: #888; }
+
+div.form-popup-options {
+    background: #333; border-left: 1px solid #888; border-top: 1px solid #888; border-bottom: 1px solid #888;
+}
+
+.popup-owner { background: #444; }
+
+label.radio, label.checkbox { border: 1px solid #888; }
+
+.tag-link, .argument-link { color: #888; }
+.tag-link:hover, .argument-link:hover { color: #aaa; }
