@@ -46,14 +46,18 @@ function load_theme(name) {
         .attr('href', 'img/' + name + '-favicon.png')
         .attr('type', 'image/png');
 
-    var chart_chrome_themes = {
-        light: {
+    var default_chart_theme = {
             series: { lines: { show: true } },
             grid:   { borderWidth: 2, borderColor: "#aaa" },
             xaxis:  { tickColor: "#fff", mode: "time" },
             yaxis:  { tickColor: "#eee", min: 0 },
             legend: { show: false }
-        },
+        };
+
+    var chart_chrome_themes = {
+        default: default_chart_theme,
+        green:   default_chart_theme,
+        blue:    default_chart_theme,
         dark: {
             series: { lines: { show: true } },
             grid:   { borderWidth: 2, borderColor: "#666" },
