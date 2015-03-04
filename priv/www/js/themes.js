@@ -20,7 +20,7 @@ function get_theme() {
     return theme == null ? 'Default' : theme;
 }
 
-var THEMES = ['Default', 'Dark'];
+var THEMES = ['Default', 'Dark', 'Blue', 'Green'];
 
 function change_theme() {
     var theme = get_theme();
