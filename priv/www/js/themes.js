@@ -1,9 +1,7 @@
 dispatcher_add(function(sammy) {
-    sammy.put('#/fed-globals', function() {
-            if (this.params.value == '') this.params.value = null;
-
-            if (sync_put(this, '/parameters/:component/:vhost/:name'))
-                update();
+    sammy.put('#/themes-dummy', function() {
+            // We need to add something to the disptcher so it knows
+            // we've loaded :-/
             return false;
         });
 });
