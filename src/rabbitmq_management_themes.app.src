@@ -1,6 +1,6 @@
 {application, rabbitmq_management_themes,
  [{description, "RabbitMQ Management Themes"},
-  {vsn, "%%VSN%%"},
+  {vsn, ""},
   {modules, []},
   {registered, []},
   {env, []},
