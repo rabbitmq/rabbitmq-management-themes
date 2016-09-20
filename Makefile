@@ -1,6 +1,6 @@
 PROJECT = rabbitmq_management_themes
 
-DEPS = rabbitmq_management
+DEPS = rabbit_common rabbit rabbitmq_management
 
 DEP_PLUGINS = rabbit_common/mk/rabbitmq-plugin.mk
 
