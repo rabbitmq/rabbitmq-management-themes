@@ -1,4 +1,5 @@
 PROJECT = rabbitmq_management_themes
+PROJECT_DESCRIPTION = RabbitMQ Management Themes
 
 DEPS = rabbit_common rabbit rabbitmq_management
 
