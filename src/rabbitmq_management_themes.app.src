@@ -1,9 +1,0 @@
-{application, rabbitmq_management_themes,
- [{description, "RabbitMQ Management Themes"},
-  {vsn, ""},
-  {modules, []},
-  {registered, []},
-  {env, []},
-  {broker_version_requirements, ["3.7.0"]},
-  {applications, [kernel, stdlib, rabbit_common, rabbit, rabbitmq_management]}
- ]}.
