@@ -2,7 +2,7 @@ PROJECT = rabbitmq_management_themes
 PROJECT_DESCRIPTION = RabbitMQ Management Themes
 
 define PROJECT_APP_EXTRA_KEYS
-	{broker_version_requirements, []}
+	{broker_version_requirements, ["3.7.0"]}
 endef
 
 DEPS = rabbit_common rabbit rabbitmq_management
