@@ -3,6 +3,7 @@ PROJECT_DESCRIPTION = RabbitMQ Management Themes
 
 DEPS = rabbit_common rabbit rabbitmq_management
 
+DEP_EARLY_PLUGINS = rabbit_common/mk/rabbitmq-early-plugin.mk
 DEP_PLUGINS = rabbit_common/mk/rabbitmq-plugin.mk
 
 # FIXME: Use erlang.mk patched for RabbitMQ, while waiting for PRs to be
