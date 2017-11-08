@@ -1,0 +1,54 @@
+# vim:sw=2:et:
+
+sudo: false
+language: erlang
+notifications:
+  email:
+    - alerts@rabbitmq.com
+addons:
+  apt:
+    packages:
+      - awscli
+      - xsltproc
+cache:
+  apt: true
+env:
+  global:
+    - secure: E12xk1JnXAniWf34TrdQ6+xLHQ0FEAPT4uarCedqdoO+UMo2658fIW+DnKsThwrPMp4UmYOJjiqJvObBg6aV4sAqi+hOqD0pC4lNuddsOJOopoWEre4PHxlrH2oOGWSsodxpAeb2GM5XMqupTG4aO9BFRZAxcUPzYU06NQExd40=
+    - secure: eEdoyFwSWs48SkCJBOyEiZQNe09D931mUJzyFZUIDvzSvkl7Yy2tM9aAGjoSYupA8yAanLZVk/3msrfJ4oR4JdEKAu721x8iPi/aBqn7utDqV97jPcQEOLWMs/m0vwz48KsPorCJyHG3y4PzP6myBhAKVlq/Xp4TyOgKgian4mk=
+
+otp_release:
+  - "R16B03-1"
+  - "19.3"
+  - "20.1"
+
+before_script:
+  # The checkout made by Travis is a "detached HEAD" and branches
+  # information is missing. Our Erlang.mk's git_rmq fetch method relies
+  # on it, so we need to restore it.
+  #
+  # We simply fetch master and, if it exists, stable branches. A branch
+  # is created, pointing to the detached HEAD.
+  - |
+    git checkout -B "${TRAVIS_TAG:-${TRAVIS_BRANCH}}"
+    git remote add upstream https://github.com/$TRAVIS_REPO_SLUG.git
+    git fetch upstream stable:stable || :
+    git fetch upstream master:master || :
+
+script:
+  - make xref
+  - make tests
+
+after_failure:
+  - |
+    cd "$TRAVIS_BUILD_DIR"
+    if test -d logs && test "$AWS_ACCESS_KEY_ID" && test "$AWS_SECRET_ACCESS_KEY"; then
+      archive_name="$(basename "$TRAVIS_REPO_SLUG")-$TRAVIS_JOB_NUMBER"
+
+      tar -c --transform "s/^logs/${archive_name}/" -f - logs | \
+        xz > "${archive_name}.tar.xz"
+
+      aws s3 cp "${archive_name}.tar.xz" s3://server-release-pipeline/travis-ci-logs/ \
+        --region eu-west-1 \
+        --acl public-read
+    fi
