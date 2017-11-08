@@ -7,18 +7,23 @@ notifications:
     - alerts@rabbitmq.com
 addons:
   apt:
+    sources:
+      - sourceline: deb https://packages.erlang-solutions.com/ubuntu trusty contrib
+        key_url: https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc
     packages:
       - awscli
-      - xsltproc
+      # Use Elixir from Erlang Solutions. The provided Elixir is
+      # installed with kiex but is old. We also can't use kiex to
+      # install a newer one because of GitHub API rate limiting.
+      - elixir=1.4.5-1
 cache:
   apt: true
 env:
   global:
-    - secure: E12xk1JnXAniWf34TrdQ6+xLHQ0FEAPT4uarCedqdoO+UMo2658fIW+DnKsThwrPMp4UmYOJjiqJvObBg6aV4sAqi+hOqD0pC4lNuddsOJOopoWEre4PHxlrH2oOGWSsodxpAeb2GM5XMqupTG4aO9BFRZAxcUPzYU06NQExd40=
-    - secure: eEdoyFwSWs48SkCJBOyEiZQNe09D931mUJzyFZUIDvzSvkl7Yy2tM9aAGjoSYupA8yAanLZVk/3msrfJ4oR4JdEKAu721x8iPi/aBqn7utDqV97jPcQEOLWMs/m0vwz48KsPorCJyHG3y4PzP6myBhAKVlq/Xp4TyOgKgian4mk=
+    - secure: Go9RB9bowcI5EPSOGKndu1CQmzS0uj1nbsbywm+4XXenwNjB6zZlbzM2ctXD4eWtyvR8KHvBalTJ4gk5E8Nj2wjhin+V6G2+iOZlaciCu+rujIsig9OMi22QC+1K0ZrL1M0ltTKYXs0vPCD5OC667qs2xdAWwUV/2khCYKVBWaY=
+    - secure: Ak83imZqOn2MHeO/GsB/mXV835OkNreBgVNX4BeH/XRQsC/gcUz01XiwYDmSrk1fqCMwDgxaSGTLVLzg9WqCk6IoslewTEOK59j7w3an9sikCu597mkd6iAI3B0ubLE/Lf3bbwqZbPQ5+ax+EXfZ/kEnSBrqfSPTszWQswLUMPY=
 
 otp_release:
-  - "R16B03-1"
   - "19.3"
   - "20.1"
 
@@ -34,6 +39,11 @@ before_script:
     git remote add upstream https://github.com/$TRAVIS_REPO_SLUG.git
     git fetch upstream stable:stable || :
     git fetch upstream master:master || :
+  # Make sure we use Elixir from Erlang Solutions and not kiex.
+  - |
+    echo YES | kiex implode
+    elixir --version
+    elixir --version | grep -q 'Elixir 1.4.5'
 
 script:
   - make xref
