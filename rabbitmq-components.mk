@@ -70,7 +70,6 @@ dep_rabbitmq_management               = git_rmq rabbitmq-management $(current_rm
 dep_rabbitmq_management_agent         = git_rmq rabbitmq-management-agent $(current_rmq_ref) $(base_rmq_ref) master
 dep_rabbitmq_management_exchange      = git_rmq rabbitmq-management-exchange $(current_rmq_ref) $(base_rmq_ref) master
 dep_rabbitmq_management_themes        = git_rmq rabbitmq-management-themes $(current_rmq_ref) $(base_rmq_ref) master
-dep_rabbitmq_management_visualiser    = git_rmq rabbitmq-management-visualiser $(current_rmq_ref) $(base_rmq_ref) master
 dep_rabbitmq_message_timestamp        = git_rmq rabbitmq-message-timestamp $(current_rmq_ref) $(base_rmq_ref) master
 dep_rabbitmq_metronome                = git_rmq rabbitmq-metronome $(current_rmq_ref) $(base_rmq_ref) master
 dep_rabbitmq_mqtt                     = git_rmq rabbitmq-mqtt $(current_rmq_ref) $(base_rmq_ref) master
@@ -116,10 +115,7 @@ dep_jsx = hex 2.9.0
 dep_lager = hex 3.6.5
 dep_ra = git https://github.com/rabbitmq/ra.git master
 dep_ranch = hex 1.7.1
-dep_ranch_proxy_protocol = hex 2.1.1
 dep_recon = hex 2.3.6
-
-dep_sockjs = git https://github.com/rabbitmq/sockjs-erlang.git 405990ea62353d98d36dbf5e1e64942d9b0a1daf
 
 RABBITMQ_COMPONENTS = amqp_client \
 		      amqp10_common \
@@ -154,7 +150,6 @@ RABBITMQ_COMPONENTS = amqp_client \
 		      rabbitmq_management_agent \
 		      rabbitmq_management_exchange \
 		      rabbitmq_management_themes \
-		      rabbitmq_management_visualiser \
 		      rabbitmq_message_timestamp \
 		      rabbitmq_metronome \
 		      rabbitmq_mqtt \
@@ -202,7 +197,7 @@ export current_rmq_ref
 
 ifeq ($(origin base_rmq_ref),undefined)
 ifneq ($(wildcard .git),)
-possible_base_rmq_ref := master
+possible_base_rmq_ref := v3.7.x
 ifeq ($(possible_base_rmq_ref),$(current_rmq_ref))
 base_rmq_ref := $(current_rmq_ref)
 else
